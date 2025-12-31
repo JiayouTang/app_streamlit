@@ -5,6 +5,7 @@ import shap
 import joblib, json
 from pathlib import Path
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 # ===============================
 # 页面配置
@@ -14,7 +15,8 @@ st.set_page_config(page_title="胆结石预测与解释", layout="wide")
 # ===============================
 # 加载资源
 # ===============================
-ART_DIR = Path(r"C:\Users\唐嘉佑\Desktop\科研论文\model\20251226-数据集2结果图-01\artifacts")
+BASE_DIR = Path(__file__).parent
+ART_DIR = BASE_DIR / "artifacts"
 
 model = joblib.load(ART_DIR / "final_pipe.joblib")
 
@@ -123,3 +125,4 @@ else:
     st.info("请在左侧输入参数后点击 **预测并解释**")
 
 st.caption("⚠ 本系统仅用于科研演示，临床应用请结合专业医师判断。")
+
